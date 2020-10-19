@@ -9,7 +9,7 @@ const Detail = loadable(() => import('@/containers/detail'));
 
 const ROOT_PATH = '';
 
-const routes = (
+const routes = () => (
   <BrowserRouter basename={ROOT_PATH}>
     <Route path='/home' component={Home} />
     <Route path='/detail' component={Detail} />
