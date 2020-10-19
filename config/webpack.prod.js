@@ -1,7 +1,7 @@
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = merge(common, {
   mode: 'production',
@@ -10,7 +10,16 @@ module.exports = merge(common, {
   ],
   devtool: 'source-map',
   optimization: {
-    minimizer: [],
+    minimizer: [
+      new TerserPlugin({
+        // cache: true,
+        parallel: true,
+        // sourceMap: true, // 如果在生产环境中使用 source-maps，必须设置为 true
+        terserOptions: {
+          // https://github.com/webpack-contrib/terser-webpack-plugin#terseroptions
+        }
+      })
+    ],
     splitChunks: {
       cacheGroups: {
         common: {
