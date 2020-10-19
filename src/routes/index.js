@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  BrowserRouter, Route
+  BrowserRouter, Route, Redirect, Switch
 } from 'react-router-dom';
 import loadable from '@loadable/component';
 
@@ -11,8 +11,12 @@ const ROOT_PATH = '';
 
 const routes = () => (
   <BrowserRouter basename={ROOT_PATH}>
-    <Route path='/home' component={Home} />
-    <Route path='/detail' component={Detail} />
+    <Switch>
+      <Redirect exact from='/' to='home' />
+      <Route path='/home' component={Home} />
+      <Route path='/detail' component={Detail} />
+    </Switch>
+
   </BrowserRouter>
 )
 

@@ -15,6 +15,7 @@ class Home extends Component{
         {
           'isValid:' + isValid(1)
         }
+        <button onClick={() => this.props.history.push({pathname: '/detail'})}>to detail</button>
       </div>
     )
   }
