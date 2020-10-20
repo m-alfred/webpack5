@@ -2,13 +2,9 @@ import React, { Suspense, lazy } from 'react';
 import {
   BrowserRouter, Route, Redirect, Switch,
 } from 'react-router-dom';
-// import loadable from '@loadable/component';
 
 const Home = lazy(() => import('@/containers/home'));
 const Detail = lazy(() => import('@/containers/detail'));
-
-// import Home from '@/containers/home';
-// import Detail from '@/containers/detail';
 
 const ROOT_PATH = '';
 

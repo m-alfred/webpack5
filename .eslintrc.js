@@ -33,6 +33,7 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'react/prop-types': 'off',
     'react/destructuring-assignment': 'off',
+    'global-require': 'off',
   },
   globals: {
     window: true,
