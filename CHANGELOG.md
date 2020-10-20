@@ -1,0 +1,27 @@
+# 1.0.0 (2020-10-20)
+
+
+### Features
+
+* add autoprefixer ([a5695c6](https://github.com/m-alfred/webpack5/commit/a5695c61d771faee75602de2873a570d6f3715a6))
+* css loader处理 ([968e3d9](https://github.com/m-alfred/webpack5/commit/968e3d964486ee5b1f06e2aae47899d7f90d9d27))
+* dev开发服务器 ([8720594](https://github.com/m-alfred/webpack5/commit/87205949b0a73eaf44f03b60ca82c6f0445aa52b))
+* eslint格式化代码 ([1c087a2](https://github.com/m-alfred/webpack5/commit/1c087a257848dc78867610c6e05f36965463404f))
+* less全局变量注入 ([298ab0e](https://github.com/m-alfred/webpack5/commit/298ab0ec19a590cd8c2000fff56902ec48314009))
+* NODE_ENV注入 ([c76bf90](https://github.com/m-alfred/webpack5/commit/c76bf9036ae140c735f848e84ec214272ca5fd19))
+* output contenthash ([15040b2](https://github.com/m-alfred/webpack5/commit/15040b25e951bd4e996b6ed362d52f55325874b4))
+* postcss add autoprefixer ([8e4b09f](https://github.com/m-alfred/webpack5/commit/8e4b09fe0c2f4cc87b03daee50d8ec019ccf7923))
+* react-hot-loader热更新\支持懒加载模块 ([e39e969](https://github.com/m-alfred/webpack5/commit/e39e969cdaa5cd1bf1a2b95d32caa1890c7d4f96))
+* terser压缩js ([9669f8a](https://github.com/m-alfred/webpack5/commit/9669f8ae0c97b984fc23e099ad894210a363b017))
+* url-loader\file-loader处理图片\字体 ([1ba4215](https://github.com/m-alfred/webpack5/commit/1ba4215cc4c8bafba762597fa957729657367c8e))
+* use react-router ([6d85a7e](https://github.com/m-alfred/webpack5/commit/6d85a7e76d8b288ddaa05852b5fb0003df20aaf2))
+* 全局注入NODE_ENV ([3ef8539](https://github.com/m-alfred/webpack5/commit/3ef8539454088e8b46e36a22404086d902e39d0d))
+* 基础webpack配置 ([7ab241a](https://github.com/m-alfred/webpack5/commit/7ab241a95d6d3bfe3e72061c7ec9e7c2ff1034b2))
+* 基础webpack配置 ([ef7a6e3](https://github.com/m-alfred/webpack5/commit/ef7a6e3298c06838d2c5c6a2eb54483e55fde14f))
+* 引入eslint规范代码 ([24a5a37](https://github.com/m-alfred/webpack5/commit/24a5a37b79ec12f75d8ac45845476dea5c632502))
+* 引入stylelint格式化样式 ([d79ef43](https://github.com/m-alfred/webpack5/commit/d79ef43f3a71f4233f8d4bc7d2cd266d90963fb7))
+* 构建bundle分析 ([404e72d](https://github.com/m-alfred/webpack5/commit/404e72d233d6beb1633a35451329cd97b35dc661))
+* 自动生成changelog ([8acfe1f](https://github.com/m-alfred/webpack5/commit/8acfe1fbc76553b796b36c038a7c535a27e2ffd1))
+
+
+
