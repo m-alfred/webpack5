@@ -1,5 +1,9 @@
 import React, { Component } from  'react'
 import { isValid } from '@/utils';
+import { Button } from 'antd';
+import picPikachu from '@/assets/pikachu.jpg';
+// import './index.less';
+
 class Home extends Component{
   constructor(props) {
     super(props)
@@ -10,12 +14,15 @@ class Home extends Component{
   }
   render() {
     return(
-      <div >
-        home
+      <div className='the-home'>
+        <h3>home</h3>
         {
           'isValid:' + isValid(1)
         }
-        <button onClick={() => this.props.history.push({pathname: '/detail'})}>to detail</button>
+        <div >
+          <Button onClick={() => this.props.history.push({pathname: '/detail'})}>to detail</Button>
+        </div>
+        <img src={picPikachu} alt=""/>
       </div>
     )
   }
