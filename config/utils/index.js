@@ -31,17 +31,6 @@ exports.cssLoaders = function (options) {
         options: Object.assign({}, loaderOptions)
       });
     }
-
-    if (loader === 'less') {
-      // 全局注入less 、 sass的变量和混合
-      loaders.push({
-        loader: 'less-loader',
-        options: {
-          
-        }
-      });
-    }
-
     // Extract CSS when that option is specified
     // (which is the case during production build)
     if (options.extract) {
@@ -52,10 +41,18 @@ exports.cssLoaders = function (options) {
     }
   }
 
+  console.log('process.env.NODE_ENV:', process.env.NODE_ENV);
+  
   return {
     css: generateLoaders(),
     postcss: generateLoaders(),
-    less: generateLoaders('less', { javascriptEnabled: true })
+    less: generateLoaders('less', { 
+      lessOptions: {
+        javascriptEnabled: true 
+      },
+      // This is especially useful when some of your Less variables depend on the environment
+      additionalData: `@env: ${process.env.NODE_ENV}; @primary-color: rgb(0, 173, 0);`,
+    })
   };
 };
 

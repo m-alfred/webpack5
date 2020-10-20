@@ -2,7 +2,7 @@ import React, { Component } from  'react'
 import { isValid } from '@/utils';
 import { Button } from 'antd';
 import picPikachu from '@/assets/pikachu.jpg';
-// import './index.less';
+import './index.less';
 
 class Home extends Component{
   constructor(props) {
