@@ -1,9 +1,9 @@
 export const isValid = (val) => {
   if (val === null) {
-    return false
+    return false;
   }
   if (val === undefined) {
-    return false
+    return false;
   }
-  return true
-}
+  return true;
+};

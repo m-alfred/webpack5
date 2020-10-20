@@ -1,24 +1,25 @@
 const { merge } = require('webpack-merge');
-const common = require('./webpack.common.js');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const common = require('./webpack.common.js');
 
-const { styleLoaders } = require('./utils')
+const { styleLoaders } = require('./utils');
+
 const analyze = true;
 
 module.exports = merge(common, {
   mode: 'production',
-  
+
   devtool: 'source-map',
   module: {
     rules: [
       ...styleLoaders({
         usePostCSS: true,
-        extract: true
-      })
-    ]
+        extract: true,
+      }),
+    ],
   },
   optimization: {
     minimizer: [
@@ -28,8 +29,8 @@ module.exports = merge(common, {
         // sourceMap: true, // 如果在生产环境中使用 source-maps，必须设置为 true
         terserOptions: {
           // https://github.com/webpack-contrib/terser-webpack-plugin#terseroptions
-        }
-      })
+        },
+      }),
     ],
     splitChunks: {
       cacheGroups: {
@@ -44,14 +45,14 @@ module.exports = merge(common, {
           test: /[\\/]node_modules[\\/]/,
           chunks: 'all',
           enforce: true,
-        }
+        },
       },
-    }
+    },
   },
   plugins: [
     new MiniCssExtractPlugin(),
     new CleanWebpackPlugin(),
   ].concat(
-    analyze ? [new BundleAnalyzerPlugin()] : []
+    analyze ? [new BundleAnalyzerPlugin()] : [],
   ),
 });

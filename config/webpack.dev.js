@@ -10,8 +10,8 @@ module.exports = merge(common, {
   module: {
     rules: [
       ...styleLoaders({
-        usePostCSS: true
-      })
-    ]
-  }
+        usePostCSS: true,
+      }),
+    ],
+  },
 });

@@ -1,23 +1,24 @@
-import React, { Component } from  'react'
+import React, { Component } from 'react';
 import { isValid } from '@/utils';
 
-class Detail extends Component{
+class Detail extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
 
     };
   }
+
   render() {
-    return(
-      <div >
+    return (
+      <div>
         Detail
         {
-          'isValid:' + isValid(null)
+          `isValid:${isValid(null)}`
         }
       </div>
-    )
+    );
   }
 }
-export default Detail
+export default Detail;
