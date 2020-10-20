@@ -1,9 +1,10 @@
 const { resolve, supportReactHotReload } = require('./utils')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { DefinePlugin } = require('webpack');
 
 module.exports = {
   entry: {
-    index: (supportReactHotReload() ? ['react-hot-loader/patch'] :[]).concat([resolve('src/index.js')]),
+    index: (supportReactHotReload() ? ['react-hot-loader/patch'] : []).concat([resolve('src/index.js')]),
   },
   output: {
     filename: '[name].[contenthash:8].js',
@@ -50,6 +51,9 @@ module.exports = {
     ]
   },
   plugins: [
+    new DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+    }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'public/index.html',
