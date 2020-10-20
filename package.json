@@ -26,6 +26,7 @@
     "less-loader": "^7.0.2",
     "mini-css-extract-plugin": "^1.0.0",
     "postcss-loader": "^4.0.4",
+    "react-hot-loader": "^4.13.0",
     "style-loader": "^2.0.0",
     "terser-webpack-plugin": "^5.0.0",
     "url-loader": "^4.1.1",

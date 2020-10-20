@@ -1,9 +1,9 @@
-const { resolve } = require('./utils')
+const { resolve, supportReactHotReload } = require('./utils')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    index: resolve('src/index.js')
+    index: (supportReactHotReload() ? ['react-hot-loader/patch'] :[]).concat([resolve('src/index.js')]),
   },
   output: {
     filename: '[name].[contenthash:8].js',

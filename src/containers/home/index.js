@@ -15,7 +15,7 @@ class Home extends Component{
   render() {
     return(
       <div className='the-home'>
-        <h3>home</h3>
+        <h3>home12</h3>
         {
           'isValid:' + isValid(1)
         }

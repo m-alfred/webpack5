@@ -1,5 +1,8 @@
 const path = require('path');
+const { ROOT_PATH } = require('./paths');
+const pkg = require(`${ROOT_PATH}/package.json`);
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 
 exports.resolve = (dir) => {
   return path.resolve(__dirname, '../../', dir)
@@ -69,3 +72,10 @@ exports.styleLoaders = function (options) {
   }
   return output;
 };
+
+exports.supportReactHotReload = function() {
+  const dependencyFlag = Object.keys(pkg.dependencies || {}).includes('react-hot-loader');
+  const devDependencyFlag = Object.keys(pkg.devDependencies || {}).includes('react-hot-loader');
+
+  return dependencyFlag || devDependencyFlag;
+}
