@@ -2,13 +2,21 @@ const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { styleLoaders } = require('./utils')
 
 module.exports = merge(common, {
   mode: 'production',
-  plugins: [
-    new CleanWebpackPlugin(),
-  ],
+  
   devtool: 'source-map',
+  module: {
+    rules: [
+      ...styleLoaders({
+        usePostCSS: true,
+        extract: true
+      })
+    ]
+  },
   optimization: {
     minimizer: [
       new TerserPlugin({
@@ -36,5 +44,9 @@ module.exports = merge(common, {
         }
       },
     }
-  }
+  },
+  plugins: [
+    new MiniCssExtractPlugin(),
+    new CleanWebpackPlugin(),
+  ],
 });
