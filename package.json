@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "cross-env NODE_ENV=development node dev-server.js",
-    "build": "cross-env NODE_ENV=production webpack --config ./config/webpack.prod.js"
+    "build": "cross-env NODE_ENV=production webpack --config ./config/webpack.prod.js",
+    "lint:style": "stylelint --fix 'src/**/*.less'"
   },
   "author": "",
   "license": "ISC",
@@ -28,6 +29,9 @@
     "postcss-loader": "^4.0.4",
     "react-hot-loader": "^4.13.0",
     "style-loader": "^2.0.0",
+    "stylelint": "^13.7.2",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-order": "^4.1.0",
     "terser-webpack-plugin": "^5.0.0",
     "url-loader": "^4.1.1",
     "webpack": "^5.1.2",
