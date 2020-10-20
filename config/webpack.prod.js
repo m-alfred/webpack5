@@ -3,7 +3,10 @@ const common = require('./webpack.common.js');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+
 const { styleLoaders } = require('./utils')
+const analyze = true;
 
 module.exports = merge(common, {
   mode: 'production',
@@ -48,5 +51,7 @@ module.exports = merge(common, {
   plugins: [
     new MiniCssExtractPlugin(),
     new CleanWebpackPlugin(),
-  ],
+  ].concat(
+    analyze ? [new BundleAnalyzerPlugin()] : []
+  ),
 });
