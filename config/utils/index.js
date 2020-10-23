@@ -60,10 +60,7 @@ exports.cssLoaders = (options = {}) => {
 exports.styleLoaders = (options) => {
   const output = [];
   const loaders = exports.cssLoaders(options);
-  console.log('loaders:', loaders);
   Object.keys(loaders).forEach((extension) => {
-    console.log('extension:', extension);
-
     const loader = loaders[extension];
     output.push({
       test: new RegExp(`\\.${extension}$`),

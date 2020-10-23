@@ -17,7 +17,10 @@
 - [x] eslint
 - [x] 自动给生成changelog脚本
 - [x] git commit钩子格式化代码
-- [ ] 命令行传参
+- [x] 命令行传参
+- [x] 业务css合并
+- [x] css压缩
 - [ ] webpack-chains重构
 - [ ] 支持typescript
 - [ ] 端口防冲突
+

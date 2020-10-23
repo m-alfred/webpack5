@@ -1,11 +1,12 @@
 const Webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
-const webpackConfig = require('./config/webpack.dev');
+const webpackConfig = require('../config/webpack.dev');
 
 const compiler = Webpack(webpackConfig);
 const port = 8080;
-const host = '127.0.0.1'
-const devServerOptions = Object.assign({}, webpackConfig.devServer, {
+const host = '127.0.0.1';
+const devServerOptions = {
+  ...webpackConfig.devServer,
   index: 'index.html',
   open: true,
   stats: {
@@ -13,7 +14,7 @@ const devServerOptions = Object.assign({}, webpackConfig.devServer, {
   },
   historyApiFallback: true,
   hot: true,
-});
+};
 const server = new WebpackDevServer(compiler, devServerOptions);
 
 server.listen(port, host, () => {

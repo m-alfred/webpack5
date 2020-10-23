@@ -4,12 +4,14 @@ const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-
 const common = require('./webpack.common.js');
 
 const { styleLoaders } = require('./utils');
+const { envConfig } = require('./utils/env-config');
 
-const analyze = true;
+console.log('envConfig:', envConfig);
+
+const { analyze } = envConfig;
 
 module.exports = merge(common, {
   mode: 'production',
@@ -65,7 +67,7 @@ module.exports = merge(common, {
           */
           test: /\.(css|less)$/,
           name(module, chunks, cacheGroupKey) {
-            console.log('module', module.context, chunks, cacheGroupKey);
+            // console.log('module', module.context, chunks, cacheGroupKey);
             return cacheGroupKey;
           },
           chunks: 'all',
