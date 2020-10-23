@@ -4,6 +4,13 @@ import { Button } from 'antd';
 import picPikachu from '@/assets/pikachu.jpg';
 import './index.less';
 
+function wait(time) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, time);
+  });
+}
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -11,6 +18,13 @@ class Home extends Component {
     this.state = {
 
     };
+  }
+
+  async componentDidMount() {
+    console.log('this.box.size:', this.box.clientWidth, this.box.clientHeight);
+
+    await wait(2000);
+    console.log('after 2000');
   }
 
   render() {
@@ -24,6 +38,7 @@ class Home extends Component {
           <Button onClick={() => this.props.history.push({ pathname: '/detail' })}>to detail</Button>
         </div>
         <img src={picPikachu} alt="" />
+        <div className="box-size" ref={(node) => { this.box = node; }} />
       </div>
     );
   }

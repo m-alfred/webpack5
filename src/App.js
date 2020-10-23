@@ -7,10 +7,18 @@ import Routes from './routes';
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 function App() {
+  async function handleClick() {
+    message.info('welcome');
+    const module = await import('@/utils/print');
+    console.log('module', module);
+
+    const print = module.default;
+    print();
+  }
   return (
     <div className="App">
       Hello World1
-      <Button type="primary" onClick={() => message.info('welcome')}>欢迎1</Button>
+      <Button type="primary" onClick={() => handleClick()}>欢迎1</Button>
       <DatePicker />
       <Routes />
     </div>
