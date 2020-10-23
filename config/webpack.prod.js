@@ -3,7 +3,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-// const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const common = require('./webpack.common.js');
 
@@ -34,7 +34,7 @@ module.exports = merge(common, {
         },
       }),
       // css压缩
-      // new OptimizeCSSAssetsPlugin({}),
+      new OptimizeCSSAssetsPlugin({}),
     ],
     splitChunks: {
       cacheGroups: {
