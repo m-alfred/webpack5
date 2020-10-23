@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { isValid } from '@/utils';
+import './index.less';
 
 class Detail extends Component {
   constructor(props) {
