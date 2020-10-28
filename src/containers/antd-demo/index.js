@@ -3,6 +3,7 @@ import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import DynamicForm from './dynamic-form';
 import DynamicNestForm from './dynamic-nest-form';
 import AdvancetForm from './advance-form';
+import NestValid from './nest-valid';
 
 function Main() {
   return (
@@ -24,6 +25,7 @@ function AntdDemo() {
       <Route path={`${path}/dynamic-form`} component={DynamicForm} />
       <Route path={`${path}/dynamic-nest-form`} component={DynamicNestForm} />
       <Route path={`${path}/advance-form`} component={AdvancetForm} />
+      <Route path={`${path}/nest-valid`} component={NestValid} />
     </Switch>
   );
 }
