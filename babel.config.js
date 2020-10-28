@@ -16,7 +16,11 @@ module.exports = (api) => {
     ],
     '@babel/preset-react',
   ];
-  const plugins = ['react-hot-loader/babel', ['@babel/plugin-proposal-decorators', { legacy: true }]];
+  const plugins = [
+    'react-hot-loader/babel',
+    ['@babel/plugin-proposal-decorators', { legacy: true }],
+    ['@babel/plugin-proposal-class-properties', { loose: false }],
+  ];
 
   return { presets, plugins };
 };
