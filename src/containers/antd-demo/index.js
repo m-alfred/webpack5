@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import DynamicForm from './dynamic-form';
-// import DynamicNestForm from './dynamic-nest-form';
+import DynamicNestForm from './dynamic-nest-form';
 
 function Main() {
   return (
@@ -21,7 +21,7 @@ function AntdDemo() {
     <Switch>
       <Route exact path={path} component={Main} />
       <Route path={`${path}/dynamic-form`} component={DynamicForm} />
-      {/* <Route path={`${path}/dynamic-nest-form`} component={DynamicNestForm} /> */}
+      <Route path={`${path}/dynamic-nest-form`} component={DynamicNestForm} />
     </Switch>
   );
 }
