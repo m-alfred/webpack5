@@ -34,6 +34,7 @@ module.exports = {
     'react/prop-types': 'off',
     'react/destructuring-assignment': 'off',
     'global-require': 'off',
+    'react/jsx-props-no-spreading': 'off',
   },
   globals: {
     window: true,

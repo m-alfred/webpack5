@@ -82,6 +82,7 @@
     "webpack-merge": "^5.2.0"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.2.2",
     "core-js": "3",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",

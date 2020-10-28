@@ -32,6 +32,7 @@ class MyErrorBoundary extends React.Component {
 // 指定chunkName
 const Home = lazy(() => import(/* webpackChunkName: "home" */ '@/containers/home/index'));
 const Detail = lazy(() => import(/* webpackChunkName: "detail" */ '@/containers/detail/index'));
+const AntdDemo = lazy(() => import(/* webpackChunkName: "antd-demo" */ '@/containers/antd-demo/index'));
 
 const ROOT_PATH = '';
 
@@ -43,6 +44,7 @@ const routes = () => (
           <Redirect exact from="/" to="home" />
           <Route path="/home" component={Home} />
           <Route path="/detail" component={Detail} />
+          <Route path="/antd-demo" component={AntdDemo} />
         </Switch>
       </Suspense>
     </MyErrorBoundary>
