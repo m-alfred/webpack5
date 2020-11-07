@@ -6,7 +6,7 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const common = require('./webpack.common.js');
 
-const { styleLoaders } = require('./utils');
+const { styleLoaders } = require('./utils/webpack-utils');
 const { envConfig } = require('./utils/env-config');
 
 console.log('envConfig:', envConfig);

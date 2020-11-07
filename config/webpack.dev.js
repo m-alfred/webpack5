@@ -1,6 +1,6 @@
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
-const { styleLoaders } = require('./utils');
+const { styleLoaders } = require('./utils/webpack-utils');
 
 module.exports = merge(common, {
   mode: 'development',

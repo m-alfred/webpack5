@@ -8,4 +8,6 @@ const args = minimist(rawArgv, {
   ],
 });
 
-exports.envConfig = args;
+module.exports = {
+  envConfig: args,
+};

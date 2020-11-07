@@ -1,14 +1,11 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-const path = require('path');
+const fs = require('fs');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const { ROOT_PATH } = require('./paths');
+const { PACKAGE_JSON_PATH, TS_CONFIG_PATH } = require('./paths');
 
-const pkg = require(`${ROOT_PATH}/package.json`);
+const pkgJson = require(PACKAGE_JSON_PATH);
 
-exports.resolve = (dir) => path.resolve(__dirname, '../../', dir);
-
-exports.cssLoaders = (options = {}) => {
+const cssLoaders = (options = {}) => {
   const cssLoader = {
     loader: 'css-loader',
     options: {
@@ -57,9 +54,9 @@ exports.cssLoaders = (options = {}) => {
   };
 };
 
-exports.styleLoaders = (options) => {
+const styleLoaders = (options) => {
   const output = [];
-  const loaders = exports.cssLoaders(options);
+  const loaders = cssLoaders(options);
   Object.keys(loaders).forEach((extension) => {
     const loader = loaders[extension];
     output.push({
@@ -70,9 +67,18 @@ exports.styleLoaders = (options) => {
   return output;
 };
 
-exports.supportReactHotReload = () => {
-  const dependencyFlag = Object.keys(pkg.dependencies || {}).includes('react-hot-loader');
-  const devDependencyFlag = Object.keys(pkg.devDependencies || {}).includes('react-hot-loader');
+const useReactHotReload = () => {
+  const dependencyFlag = Object.keys(pkgJson.dependencies || {}).includes('react-hot-loader');
+  const devDependencyFlag = Object.keys(pkgJson.devDependencies || {}).includes('react-hot-loader');
 
   return dependencyFlag || devDependencyFlag;
+};
+
+const useTypeScript = () => fs.existsSync(TS_CONFIG_PATH);
+
+module.exports = {
+  cssLoaders,
+  styleLoaders,
+  useReactHotReload: useReactHotReload(),
+  useTypeScript,
 };

@@ -1,22 +1,27 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { DefinePlugin } = require('webpack');
-const { resolve, supportReactHotReload } = require('./utils');
+const {
+  SRC_INDEX_PATH, BUILD_PATH, SRC_PATH,
+} = require('./utils/paths');
+const {
+  useReactHotReload,
+} = require('./utils/webpack-utils');
 
 module.exports = {
   entry: {
-    index: (supportReactHotReload() ? ['react-hot-loader/patch'] : []).concat([resolve('src/index.js')]),
+    index: (useReactHotReload ? ['react-hot-loader/patch'] : []).concat([SRC_INDEX_PATH]),
   },
   output: {
     filename: '[name].[contenthash:8].js',
     chunkFilename: '[name].[contenthash:8].js',
-    path: resolve('build'),
+    path: BUILD_PATH,
     // webpack-dev-server 也会默认从 publicPath 为基准，使用它来决定在哪个目录下启用服务，来访问 webpack 输出的文件。
     publicPath: '/',
   },
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      '@': resolve('src'),
+      '@': SRC_PATH,
       // 'react-dom': '@hot-loader/react-dom',
     },
   },

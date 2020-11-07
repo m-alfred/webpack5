@@ -1,4 +1,4 @@
-const { resolve } = require('./config/utils');
+const { SRC_PATH } = require('./config/utils');
 
 module.exports = {
   parser: 'babel-eslint',
@@ -17,7 +17,7 @@ module.exports = {
         config: {
           resolve: {
             alias: {
-              '@': resolve('src'),
+              '@': SRC_PATH,
             },
           },
           extensions: ['.js', '.jsx'],
