@@ -12,3 +12,5 @@ module.exports = {
   PACKAGE_JSON_PATH: resolveRoot('package.json'),
   TS_CONFIG_PATH: resolveRoot('tsconfig.json'),
 };
+
+module.exports.moduleFileExtensions = ['js', 'jsx', 'ts', 'tsx'];

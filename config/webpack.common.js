@@ -1,10 +1,10 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { DefinePlugin } = require('webpack');
 const {
-  SRC_INDEX_PATH, BUILD_PATH, SRC_PATH,
+  SRC_INDEX_PATH, BUILD_PATH, SRC_PATH, moduleFileExtensions,
 } = require('./utils/paths');
 const {
-  useReactHotReload,
+  useReactHotReload, useTypeScript,
 } = require('./utils/webpack-utils');
 
 module.exports = {
@@ -19,7 +19,9 @@ module.exports = {
     publicPath: '/',
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: moduleFileExtensions
+      .map((ext) => `.${ext}`)
+      .filter((ext) => useTypeScript || !ext.includes('ts')),
     alias: {
       '@': SRC_PATH,
       // 'react-dom': '@hot-loader/react-dom',
@@ -28,7 +30,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js|jsx|ts|tsx)$/,
         use: 'babel-loader',
         exclude: /node_modules/,
       },

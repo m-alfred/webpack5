@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import { isValid } from '@/utils';
 import { Button } from 'antd';
 import picPikachu from '@/assets/pikachu.jpg';
+import Title from '@/components/Title';
+// eslint-disable-next-line import/no-unresolved
+import { format } from '@/utils/date';
+// eslint-disable-next-line import/no-unresolved
+import Hello from '@/components/Hello';
 import './index.less';
 
 function wait(time) {
@@ -30,9 +35,10 @@ class Home extends Component {
   render() {
     return (
       <div className="the-home">
-        <h3>home12</h3>
+        <Hello compiler="TypeScript" framework="React" />
+        <Title text="home12" />
         {
-          `isValid:${isValid(1)}`
+          `isValid:${isValid(1)} at ${format(+new Date())}`
         }
         <div>
           <Button onClick={() => this.props.history.push({ pathname: '/detail' })}>to detail</Button>

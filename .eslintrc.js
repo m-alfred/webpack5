@@ -1,4 +1,4 @@
-const { SRC_PATH } = require('./config/utils');
+const { SRC_PATH } = require('./config/utils/paths');
 
 module.exports = {
   parser: 'babel-eslint',
@@ -18,22 +18,25 @@ module.exports = {
           resolve: {
             alias: {
               '@': SRC_PATH,
+              // '@': path.resolve(__dirname, 'src'),
             },
           },
-          extensions: ['.js', '.jsx'],
+          extensions: ['.js', '.jsx', '.ts', '.tsx'],
         },
       },
     },
   },
   rules: {
     'no-console': 'off',
-    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', 'ts', 'tsx'] }],
     'import/no-dynamic-require': 'off',
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'import/prefer-default-export': 'off',
     'react/prop-types': 'off',
     'react/destructuring-assignment': 'off',
+    'react/prefer-stateless-function': 'off',
     'global-require': 'off',
+
   },
   globals: {
     window: true,

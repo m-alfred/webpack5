@@ -1,3 +1,5 @@
+const { useTypeScript } = require('./config/utils/webpack-utils');
+
 module.exports = (api) => {
   api.cache.using(() => process.env.NODE_ENV === 'development');
   const presets = [
@@ -16,6 +18,9 @@ module.exports = (api) => {
     ],
     '@babel/preset-react',
   ];
+  if (useTypeScript) {
+    presets.push('@babel/preset-typescript');
+  }
   const plugins = [
     'react-hot-loader/babel',
     ['@babel/plugin-proposal-decorators', { legacy: true }],
