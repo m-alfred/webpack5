@@ -21,6 +21,7 @@
 - [x] 业务css合并
 - [x] css压缩
 - [ ] webpack-chains重构
-- [ ] 支持typescript
+- [x] 支持typescript
 - [ ] 端口防冲突
+- [ ] eslint支持typescript 
 
