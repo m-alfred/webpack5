@@ -12,7 +12,8 @@
     "lint": "eslint --fix src/",
     "commit": "git cz",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "check-types": "tsc"
+    "check-types": "tsc",
+    "check": "node ./scripts/check.js"
   },
   "config": {
     "commitizen": {
@@ -84,9 +85,9 @@
     "url-loader": "^4.1.1",
     "webpack": "^5.1.2",
     "webpack-bundle-analyzer": "^3.9.0",
+    "webpack-chain": "^6.5.1",
     "webpack-cli": "^4.0.0",
-    "webpack-dev-server": "^3.11.0",
-    "webpack-merge": "^5.2.0"
+    "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
     "core-js": "3",

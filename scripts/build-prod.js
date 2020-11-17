@@ -1,9 +1,19 @@
 const webpack = require('webpack');
-const webpackConfig = require('../config/webpack.prod');
+
+const Config = require('webpack-chain');
+
+const WebpackCommonChainFn = require('../config/webpack.common');
+const webpackProdChainFn = require('../config/webpack.prod');
+
+const webpackChainConfig = new Config();
+WebpackCommonChainFn(webpackChainConfig);
+webpackProdChainFn(webpackChainConfig);
+
 const {
   log, success, error,
 } = require('../config/utils/logger');
 
+const webpackConfig = webpackChainConfig.toConfig();
 webpack(webpackConfig, (err, stats) => {
   if (err || stats.hasErrors()) {
     if (err) {
