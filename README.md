@@ -20,7 +20,7 @@
 - [x] 命令行传参
 - [x] 业务css合并
 - [x] css压缩
-- [ ] webpack-chains重构
+- [x] webpack-chains重构
 - [x] 支持typescript
 - [ ] 端口防冲突
 - [ ] eslint支持typescript 
