@@ -17,6 +17,7 @@
     "isolatedModules": true,
     // 解析webpack alias
     "paths": {
+      // 配置后可点击快速进入对应文件
       "@/*": [
         "./src/*"
       ]

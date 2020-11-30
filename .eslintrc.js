@@ -1,6 +1,8 @@
 const { SRC_PATH } = require('./config/utils/paths');
 
 module.exports = {
+  // 停止在父级目录中寻找规则
+  root: true,
   parser: 'babel-eslint',
   parserOptions: {
     sourceType: 'module',
@@ -11,6 +13,14 @@ module.exports = {
     // including ECMAScript 6+ and React.
     require.resolve('eslint-config-airbnb'),
   ],
+  // 定义了一组预定义的全局变量
+  env: {
+    // 浏览器环境中的全局变量。
+    browser: true,
+    // Node.js 全局变量和 Node.js 作用域。
+    node: true,
+    jest: true,
+  },
   settings: {
     'import/resolver': {
       webpack: {
@@ -36,12 +46,17 @@ module.exports = {
     'react/destructuring-assignment': 'off',
     'react/prefer-stateless-function': 'off',
     'global-require': 'off',
-
   },
   globals: {
-    window: true,
-    document: true,
-    XMLHttpRequest: true,
-    fetch: true,
+
   },
+  overrides: [
+    {
+      // 覆盖上面定义的规则，针对测试用例文件不做eslint校验
+      files: ['*.test.js'],
+      rules: {
+
+      },
+    },
+  ],
 };
