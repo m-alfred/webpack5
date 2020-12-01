@@ -3,6 +3,7 @@ const { SRC_PATH } = require('./config/utils/paths');
 module.exports = {
   // 停止在父级目录中寻找规则
   root: true,
+  //
   parser: 'babel-eslint',
   parserOptions: {
     sourceType: 'module',
@@ -13,6 +14,10 @@ module.exports = {
     // including ECMAScript 6+ and React.
     require.resolve('eslint-config-airbnb'),
   ],
+  // TS
+  // parser: '@typescript-eslint/parser', // 定义ESLint的解析器
+  // extends: ['plugin:@typescript-eslint/recommended'], // 定义文件继承的子规范
+  // plugins: ['@typescript-eslint'], // 定义了该eslint文件所依赖的插件
   // 定义了一组预定义的全局变量
   env: {
     // 浏览器环境中的全局变量。
