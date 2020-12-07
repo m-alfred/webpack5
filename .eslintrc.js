@@ -66,9 +66,16 @@ const config = {
   overrides: [
     {
       // 覆盖上面定义的规则，针对测试用例文件不做eslint校验
-      files: ['*.test.js'],
+      files: [
+        '*.test.js',
+        '.eslintrc.js',
+        'babel.config.js',
+        'config/**/*',
+        'scripts/**/*',
+      ],
       rules: {
-
+        'import/no-extraneous-dependencies': 'off',
+        '@typescript-eslint/no-var-requires': 'off',
       },
     },
   ],
