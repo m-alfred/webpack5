@@ -1,23 +1,31 @@
 const { SRC_PATH } = require('./config/utils/paths');
+const { useTypeScript } = require('./config/utils/webpack-utils');
 
-module.exports = {
+const pushConfig = (source, item) => {
+  if (source && source instanceof Array) {
+    source.push(item);
+    return;
+  }
+  // eslint-disable-next-line no-param-reassign
+  source = [item];
+};
+
+const config = {
   // 停止在父级目录中寻找规则
   root: true,
-  //
   parser: 'babel-eslint',
   parserOptions: {
+    // 设置es6
+    ecmaVersion: 6,
     sourceType: 'module',
-    allowImportExportEverywhere: false,
-    codeFrame: true,
+    ecmaFeatures: {
+      jsx: true,
+    },
   },
   extends: [
     // including ECMAScript 6+ and React.
     require.resolve('eslint-config-airbnb'),
   ],
-  // TS
-  // parser: '@typescript-eslint/parser', // 定义ESLint的解析器
-  // extends: ['plugin:@typescript-eslint/recommended'], // 定义文件继承的子规范
-  // plugins: ['@typescript-eslint'], // 定义了该eslint文件所依赖的插件
   // 定义了一组预定义的全局变量
   env: {
     // 浏览器环境中的全局变量。
@@ -28,12 +36,12 @@ module.exports = {
   },
   settings: {
     'import/resolver': {
+      // 支持webpack别名和扩展
       webpack: {
         config: {
           resolve: {
             alias: {
               '@': SRC_PATH,
-              // '@': path.resolve(__dirname, 'src'),
             },
           },
           extensions: ['.js', '.jsx', '.ts', '.tsx'],
@@ -65,3 +73,13 @@ module.exports = {
     },
   ],
 };
+
+if (useTypeScript) {
+  // TS
+  config.parser = '@typescript-eslint/parser'; // 定义ESLint的解析器
+  // config.parserOptions.project =  './tsconfig.json',
+  pushConfig(config.extends, 'plugin:@typescript-eslint/recommended'); // 定义文件继承的子规范
+  pushConfig(config.plugins, '@typescript-eslint'); // 定义了该eslint文件所依赖的插件
+}
+
+module.exports = config;

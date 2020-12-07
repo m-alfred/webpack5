@@ -23,5 +23,5 @@
 - [x] webpack-chains重构
 - [x] 支持typescript
 - [ ] 端口防冲突
-- [ ] eslint支持typescript 
+- [x] eslint支持typescript 
 
