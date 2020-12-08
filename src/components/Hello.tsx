@@ -4,9 +4,8 @@ import { isValid } from '@/utils';
 export interface HelloProps { compiler: string; framework: string; }
 
 // 'HelloProps' describes the shape of props.
-// State is never set so we use the '{}' type.
-class Hello extends React.Component<HelloProps, {}> {
-  render() {
+class Hello extends React.Component<HelloProps, unknown> {
+  render(): JSX.Element {
     return (
       <h1>
         {isValid(2)}
