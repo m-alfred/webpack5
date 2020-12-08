@@ -84,7 +84,7 @@ const config = {
 if (useTypeScript) {
   // TS
   config.parser = '@typescript-eslint/parser'; // 定义ESLint的解析器
-  // config.parserOptions.project =  './tsconfig.json',
+  config.parserOptions.project = './tsconfig.json';
   pushConfig(config.extends, 'plugin:@typescript-eslint/recommended'); // 定义文件继承的子规范
   pushConfig(config.plugins, '@typescript-eslint'); // 定义了该eslint文件所依赖的插件
 }

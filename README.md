@@ -24,4 +24,5 @@
 - [x] 支持typescript
 - [ ] 端口防冲突
 - [x] eslint支持typescript 
+- [ ] 支持prettier
 

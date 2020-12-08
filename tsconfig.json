@@ -23,9 +23,11 @@
       ]
     },
   },
-  "include": [
-    "src/**/*"
-  ],
+  // 如果"files"和"include"都没有被指定，编译器默认包含当前目录和子目录下所有的TypeScript文件（.ts, .d.ts 和 .tsx），排除在"exclude"里指定的文件。
+  // 指定include后，必须将需要lint的文件也一并加入，否则eslint会提示错误
+  // "include": [
+  //   // "src/**/*",
+  // ],
   "exclude": [
     "node_modules",
   ]
