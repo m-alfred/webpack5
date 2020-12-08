@@ -46,8 +46,8 @@
     "@babel/preset-react": "^7.12.1",
     "@babel/preset-typescript": "^7.12.1",
     "@types/react": "^16.9.56",
-    "@typescript-eslint/eslint-plugin": "^4.8.2",
-    "@typescript-eslint/parser": "^4.8.2",
+    "@typescript-eslint/eslint-plugin": "^4.9.0",
+    "@typescript-eslint/parser": "^4.9.0",
     "antd": "^4.7.2",
     "autoprefixer": "^9.8.6",
     "babel-eslint": "^10.1.0",
@@ -93,6 +93,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "@hot-loader/react-dom": "^16.14.0",
     "core-js": "3",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",

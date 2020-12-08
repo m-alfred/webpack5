@@ -87,6 +87,11 @@ if (useTypeScript) {
   config.parserOptions.project = './tsconfig.json';
   pushConfig(config.extends, 'plugin:@typescript-eslint/recommended'); // 定义文件继承的子规范
   pushConfig(config.plugins, '@typescript-eslint'); // 定义了该eslint文件所依赖的插件
+  Object.assign(config.rules, {
+    // fix 'React' was used before it was defined
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"]
+  })
 }
 
 module.exports = config;
