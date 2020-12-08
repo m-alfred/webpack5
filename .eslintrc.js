@@ -1,5 +1,5 @@
 const { SRC_PATH } = require('./config/utils/paths');
-const { useTypeScript } = require('./config/utils/webpack-utils');
+const { useTypeScript, usePrettier } = require('./config/utils/webpack-utils');
 
 const pushConfig = (source, item) => {
   if (source && source instanceof Array) {
@@ -92,6 +92,13 @@ if (useTypeScript) {
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"]
   })
+}
+
+// Make sure to put it last, so it gets the chance to override other configs.
+// 因为该插件要关闭所有格式化相关的ESLint规则，所以要放在最后
+if (usePrettier) {
+  pushConfig(config.extends, 'plugin:prettier/recommended');
+  pushConfig(config.extends, 'prettier/react')
 }
 
 module.exports = config;

@@ -2,7 +2,7 @@
 const path = require('path');
 
 const ROOT_PATH = path.resolve(process.cwd());
-const resolveRoot = (relativePath) => path.resolve(ROOT_PATH, relativePath);
+const resolveRoot = relativePath => path.resolve(ROOT_PATH, relativePath);
 
 module.exports = {
   ROOT_PATH: resolveRoot('.'),
@@ -11,6 +11,7 @@ module.exports = {
   BUILD_PATH: resolveRoot('build'),
   PACKAGE_JSON_PATH: resolveRoot('package.json'),
   TS_CONFIG_PATH: resolveRoot('tsconfig.json'),
+  PRETTIER_CONFIG_PATH: resolveRoot('prettier.config.js'),
 };
 
 module.exports.moduleFileExtensions = ['js', 'jsx', 'ts', 'tsx'];
