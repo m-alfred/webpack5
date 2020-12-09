@@ -29,8 +29,8 @@ function WebpackCommonChainFn(config) {
         .filter((ext) => useTypeScript || !ext.includes('ts'))
     )
     .end()
-    .alias.set('@', SRC_PATH);
-  // .set('react-dom', '@hot-loader/react-dom');
+    .alias.set('@', SRC_PATH)
+    .set('react-dom', '@hot-loader/react-dom');
 
   // 创建一个具名规则，以后用来修改规则
   config.module
