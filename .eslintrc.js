@@ -24,7 +24,9 @@ const config = {
   },
   extends: [
     // including ECMAScript 6+ and React.
-    require.resolve('eslint-config-airbnb'),
+    'airbnb',
+    // hooks
+    'airbnb/hooks'
   ],
   // 定义了一组预定义的全局变量
   env: {
