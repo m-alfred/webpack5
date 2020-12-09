@@ -6,18 +6,14 @@ class Detail extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-
-    };
+    this.state = {};
   }
 
   render() {
     return (
       <div>
         Detail
-        {
-          `isValid:${isValid(null)}`
-        }
+        {`isValid:${isValid(null)}`}
       </div>
     );
   }

@@ -13,7 +13,7 @@ function setStyleLoaders(
   webpackConfig,
   needExtract = false,
   styleName,
-  loaders,
+  loaders
 ) {
   const styleTestReg = new RegExp(`\\.${styleName}$`);
   const rule = webpackConfig.module.rule(styleName);
@@ -35,7 +35,7 @@ function setStyleLoaders(
     .loader('postcss-loader');
 
   if (loaders && loaders.length) {
-    loaders.forEach(loader => {
+    loaders.forEach((loader) => {
       // eslint-disable-next-line no-shadow
       const [loaderName, loaderOptions = {}] = loader;
 
@@ -46,16 +46,17 @@ function setStyleLoaders(
 
 const useReactHotReload = () => {
   const dependencyFlag = Object.keys(pkgJson.dependencies || {}).includes(
-    'react-hot-loader',
+    'react-hot-loader'
   );
   const devDependencyFlag = Object.keys(pkgJson.devDependencies || {}).includes(
-    'react-hot-loader',
+    'react-hot-loader'
   );
 
   return dependencyFlag || devDependencyFlag;
 };
 
 const useTypeScript = () => fs.existsSync(TS_CONFIG_PATH);
+// 此处仅考虑prettier.config.js类型配置文件，其他类型文件可自行修改
 const usePrettier = () => fs.existsSync(PRETTIER_CONFIG_PATH);
 
 module.exports = {

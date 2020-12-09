@@ -9,7 +9,7 @@
     "build": "cross-env NODE_ENV=production node ./scripts/build-prod.js",
     "build:analyze": "yarn build --analyze",
     "lint:style": "stylelint --fix 'src/**/*.less'",
-    "lint": "eslint --fix --ext .js,.jsx,.tx,.tsx src/",
+    "lint": "eslint -v && eslint --fix --ext .js,.jsx,.tx,.tsx src/",
     "commit": "git cz",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "check-types": "tsc",

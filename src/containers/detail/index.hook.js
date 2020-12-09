@@ -6,14 +6,8 @@ function Example() {
 
   return (
     <div>
-      <p>
-        I clicked
-        {' '}
-        {count}
-        {' '}
-        times
-      </p>
-      <button onClick={() => setCount(count + 1)} type="button">
+      <p>I clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)} type='button'>
         Click me
       </button>
     </div>

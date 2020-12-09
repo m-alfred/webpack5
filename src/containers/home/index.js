@@ -20,9 +20,7 @@ class Home extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-
-    };
+    this.state = {};
   }
 
   async componentDidMount() {
@@ -34,17 +32,24 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="the-home">
-        <Hello compiler="TypeScript" framework="React" />
-        <Title text="home12" />
-        {
-          `isValid:${isValid(1)} at ${format(+new Date())}`
-        }
+      <div className='the-home'>
+        <Hello compiler='TypeScript' framework='React' />
+        <Title text='home12' />
+        {`isValid:${isValid(1)} at ${format(+new Date())}`}
         <div>
-          <Button onClick={() => this.props.history.push({ pathname: '/detail' })}>to detail</Button>
+          <Button
+            onClick={() => this.props.history.push({ pathname: '/detail' })}
+          >
+            to detail
+          </Button>
         </div>
-        <img src={picPikachu} alt="" />
-        <div className="box-size" ref={(node) => { this.box = node; }} />
+        <img src={picPikachu} alt='' />
+        <div
+          className='box-size'
+          ref={(node) => {
+            this.box = node;
+          }}
+        />
       </div>
     );
   }

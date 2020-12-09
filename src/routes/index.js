@@ -1,7 +1,5 @@
 import React, { Suspense, lazy } from 'react';
-import {
-  BrowserRouter, Route, Redirect, Switch,
-} from 'react-router-dom';
+import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 
 class MyErrorBoundary extends React.Component {
   constructor(props) {
@@ -30,8 +28,12 @@ class MyErrorBoundary extends React.Component {
 }
 
 // 指定chunkName
-const Home = lazy(() => import(/* webpackChunkName: "home" */ '@/containers/home/index'));
-const Detail = lazy(() => import(/* webpackChunkName: "detail" */ '@/containers/detail/index'));
+const Home = lazy(() =>
+  import(/* webpackChunkName: "home" */ '@/containers/home/index.hook')
+);
+const Detail = lazy(() =>
+  import(/* webpackChunkName: "detail" */ '@/containers/detail/index.hook')
+);
 
 const ROOT_PATH = '';
 
@@ -40,9 +42,9 @@ const routes = () => (
     <MyErrorBoundary>
       <Suspense fallback={<div>Loading...</div>}>
         <Switch>
-          <Redirect exact from="/" to="home" />
-          <Route path="/home" component={Home} />
-          <Route path="/detail" component={Detail} />
+          <Redirect exact from='/' to='home' />
+          <Route path='/home' component={Home} />
+          <Route path='/detail' component={Detail} />
         </Switch>
       </Suspense>
     </MyErrorBoundary>

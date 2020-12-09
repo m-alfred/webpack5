@@ -1,4 +1,3 @@
-// import 'react-hot-loader' in your main file (before React)
 import { hot } from 'react-hot-loader/root';
 import React from 'react';
 import { DatePicker, Button, message } from 'antd';
@@ -16,9 +15,11 @@ function App() {
     print();
   }
   return (
-    <div className="App">
+    <div className='App'>
       Hello World1
-      <Button type="primary" onClick={() => handleClick()}>欢迎1</Button>
+      <Button type='primary' onClick={() => handleClick()}>
+        欢迎1
+      </Button>
       <DatePicker />
       <Routes />
     </div>
