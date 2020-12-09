@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 // 规范项目代码书写
 module.exports = {
   // 使用单引号
@@ -8,7 +7,7 @@ module.exports = {
   // Specify the number of spaces per indentation-level.
   tabWidth: 2,
   // Print trailing commas wherever possible when multi-line. (A single-line array, for example, never gets trailing commas.)
-  trailingComma: 'all',
+  trailingComma: 'es5',
   // Specify the line length that the printer will wrap on.
   // printWidth: 100,
   // Use single quotes instead of double quotes in JSX.
@@ -21,7 +20,7 @@ module.exports = {
       "avoid" - Omit parens when possible. Example: x => x
       "always" - Always include parens. Example: (x) => x
    */
-  arrowParens: 'avoid',
+  arrowParens: 'always',
   // Format only a segment of a file.
   rangeStart: 0,
   rangeEnd: Infinity,
