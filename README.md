@@ -25,4 +25,5 @@
 - [ ] 端口防冲突
 - [x] eslint支持typescript 
 - [x] eslint支持prettier
+- [x] stylelint规范样式代码
 
