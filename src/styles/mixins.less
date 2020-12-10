@@ -1,0 +1,74 @@
+.clearfix {
+  &::before,
+  &::after {
+    display: table;
+    content: " ";
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+.bgi(@src) when not(@src = '') {
+  background-image: url(@src);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.bgi(@src) when (@src = '') {
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.bgf(@src) when not(@src = '') {
+  background-image: url(@src);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+}
+
+.bgf(@src) when (@src = '') {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+}
+
+.bgc(@src) when not(@src = '') {
+  background-image: url(@src);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bgc(@src) when (@src = '') {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.posct(@top) {
+  position: absolute;
+  top: @top;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.center-block {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.linex(@n) when (@n = 1) {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.linex(@n) when (@n > 1) {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: @n;
+
+  /*! autoprefixer: ignore next */
+  -webkit-box-orient: vertical;
+}
