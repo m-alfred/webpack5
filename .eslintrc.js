@@ -45,22 +45,25 @@ const config = {
             alias: {
               '@': SRC_PATH,
             },
+            extensions: ['.js', '.jsx', '.ts', '.tsx'],
           },
-          extensions: ['.js', '.jsx', '.ts', '.tsx'],
         },
       },
     },
   },
   rules: {
     'no-console': 'off',
-    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', 'ts', 'tsx'] }],
+    'global-require': 'off',
     'import/no-dynamic-require': 'off',
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'import/prefer-default-export': 'off',
     'react/prop-types': 'off',
     'react/destructuring-assignment': 'off',
     'react/prefer-stateless-function': 'off',
-    'global-require': 'off',
+    // 允许展开props
+    'react/jsx-props-no-spreading': 'off',
+    // 允许js、ts文件中出现jsx语法
+    'react/jsx-filename-extension': 'off',
   },
   globals: {
 

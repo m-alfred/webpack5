@@ -3,9 +3,7 @@ import { isValid } from '@/utils';
 import { Button } from 'antd';
 import picPikachu from '@/assets/pikachu.jpg';
 import Title from '@/components/Title';
-// eslint-disable-next-line import/no-unresolved
 import { format } from '@/utils/date';
-// eslint-disable-next-line import/no-unresolved
 import Hello from '@/components/Hello';
 import './index.less';
 
