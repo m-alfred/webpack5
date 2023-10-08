@@ -23,5 +23,5 @@ module.exports = (api) => {
     ['@babel/plugin-proposal-class-properties', { loose: false }],
   ];
 
-  return { presets, plugins };
+  return { sourceType: 'unambiguous', presets, plugins };
 };
