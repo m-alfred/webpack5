@@ -48,42 +48,45 @@ function webpackProdChainFn(config) {
       .use(OptimizeCSSAssetsPlugin)
       .end()
       .splitChunks({
-        cacheGroups: {
-          common: {
-            name: 'common',
-            chunks: 'all',
-            minChunks: 2,
-            enforce: true,
-          },
-          vendor: {
-            name: 'vendor',
-            test: /[\\/]node_modules[\\/]/,
-            chunks: 'all',
-            // 第三方库优先级高于styles，将第三方库的js和css统一打包到vendor
-            priority: 10,
-            enforce: true,
-          },
-          styles: {
-            /*
-            https://webpack.docschina.org/plugins/split-chunks-plugin/#splitchunksname
-            Providing a string or a function allows you to use a custom name. Specifying
-            either a string or a function that always returns the same string will merge all
-            common modules and vendors into a single chunk. This might lead to bigger initial
-            downloads and slow down page loads.
-            If you choose to specify a function, you may find the chunk.name and chunk.hash
-            properties(where chunk is an element of the chunks array) particularly useful in
-            choosing a name for your chunk.
-          */
-            test: /\.(css|less)$/,
-            name(module, chunks, cacheGroupKey) {
-              // console.log('module', module.context, chunks, cacheGroupKey);
-              return cacheGroupKey;
-            },
-            chunks: 'all',
-            enforce: true,
-          },
-        },
+        chunks: 'all',
       });
+    // .splitChunks({
+    //   cacheGroups: {
+    //     common: {
+    //       idHint: 'common',
+    //       chunks: 'all',
+    //       minChunks: 2,
+    //       enforce: true,
+    //     },
+    //     vendor: {
+    //       idHint: 'vendor',
+    //       test: /[\\/]node_modules[\\/]/,
+    //       chunks: 'all',
+    //       // 第三方库优先级高于styles，将第三方库的js和css统一打包到vendor
+    //       priority: 10,
+    //       enforce: true,
+    //     },
+    //     styles: {
+    //       /*
+    //       https://webpack.docschina.org/plugins/split-chunks-plugin/#splitchunksname
+    //       Providing a string or a function allows you to use a custom name. Specifying
+    //       either a string or a function that always returns the same string will merge all
+    //       common modules and vendors into a single chunk. This might lead to bigger initial
+    //       downloads and slow down page loads.
+    //       If you choose to specify a function, you may find the chunk.name and chunk.hash
+    //       properties(where chunk is an element of the chunks array) particularly useful in
+    //       choosing a name for your chunk.
+    //     */
+    //       test: /\.(css|less)$/,
+    //       idHint(module, chunks, cacheGroupKey) {
+    //         // console.log('module', module.context, chunks, cacheGroupKey);
+    //         return cacheGroupKey;
+    //       },
+    //       chunks: 'all',
+    //       enforce: true,
+    //     },
+    //   },
+    // });
 
     config
       .plugin('MiniCssExtractPlugin')
