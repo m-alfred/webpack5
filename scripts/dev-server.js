@@ -1,4 +1,4 @@
-const Webpack = require('webpack');
+const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 const Config = require('webpack-chain');
 
@@ -10,7 +10,7 @@ WebpackCommonChainFn(webpackChainConfig);
 webpackDevChainFn(webpackChainConfig);
 
 const webpackConfig = webpackChainConfig.toConfig();
-const compiler = Webpack(webpackConfig);
+const compiler = webpack(webpackConfig);
 const port = 8080;
 const host = '127.0.0.1';
 const devServerOptions = {

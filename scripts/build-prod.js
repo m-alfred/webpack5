@@ -9,12 +9,10 @@ const webpackChainConfig = new Config();
 WebpackCommonChainFn(webpackChainConfig);
 webpackProdChainFn(webpackChainConfig);
 
-const {
-  log, success, error,
-} = require('../config/utils/logger');
+const { log, success, error } = require('../config/utils/logger');
 
 const webpackConfig = webpackChainConfig.toConfig();
-webpack(webpackConfig, (err, stats) => {
+const compiler = webpack(webpackConfig, (err, stats) => {
   if (err || stats.hasErrors()) {
     if (err) {
       error('Build faild.');
@@ -24,20 +22,24 @@ webpack(webpackConfig, (err, stats) => {
 
     if (stats.hasErrors()) {
       error('Build faild.');
-      log(stats.toString({
-        chunks: false,
-        colors: true,
-        modules: false,
-      }));
+      log(
+        stats.toString({
+          chunks: false,
+          colors: true,
+          modules: false,
+        })
+      );
       process.exit(1);
     }
   }
 
-  log(stats.toString({
-    chunks: false,
-    colors: true,
-    modules: false,
-  }));
+  log(
+    stats.toString({
+      chunks: false,
+      colors: true,
+      modules: false,
+    })
+  );
 
   success('webpack build done');
 });

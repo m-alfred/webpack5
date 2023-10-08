@@ -1,9 +1,13 @@
 const chalk = require('chalk');
 const padStart = require('string.prototype.padstart');
 
-const format = (label, msg) => msg.split('\n').map((line, i) => (i === 0
-  ? `${label} ${line}`
-  : padStart(line, chalk.reset(label).length))).join('\n');
+const format = (label, msg) =>
+  msg
+    .split('\n')
+    .map((line, i) =>
+      i === 0 ? `${label} ${line}` : padStart(line, chalk.reset(label).length)
+    )
+    .join('\n');
 
 const log = (msg = '') => {
   // eslint-disable-next-line no-console

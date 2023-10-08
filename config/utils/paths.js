@@ -2,7 +2,7 @@
 const path = require('path');
 
 const ROOT_PATH = path.resolve(process.cwd());
-const resolveRoot = relativePath => path.resolve(ROOT_PATH, relativePath);
+const resolveRoot = (relativePath) => path.resolve(ROOT_PATH, relativePath);
 
 module.exports = {
   ROOT_PATH: resolveRoot('.'),
