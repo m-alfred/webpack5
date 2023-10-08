@@ -13,52 +13,38 @@ const { analyze } = envConfig;
 
 function webpackProdChainFn(config) {
   if (process.env.NODE_ENV === 'production') {
-    config
-      .mode('production')
-      .devtool('source-map');
+    config.mode('production').devtool('source-map');
 
-    setStyleLoaders(
-      config,
-      true,
-      'css',
-      [
-        [
-          'css-loader',
-        ],
-      ],
-    );
+    setStyleLoaders(config, true, 'css', [['css-loader']]);
 
-    setStyleLoaders(
-      config,
-      true,
-      'less',
+    setStyleLoaders(config, true, 'less', [
       [
-        [
-          'less-loader',
-          {
-            lessOptions: {
-              javascriptEnabled: true,
-            },
-            // This is especially useful when some of your Less variables depend on the environment
-            additionalData: `@env: ${process.env.NODE_ENV}; @primary-color: rgb(0, 173, 0);`,
+        'less-loader',
+        {
+          lessOptions: {
+            javascriptEnabled: true,
           },
-        ],
+          // This is especially useful when some of your Less variables depend on the environment
+          additionalData: `@env: ${process.env.NODE_ENV}; @primary-color: rgb(0, 173, 0);`,
+        },
       ],
-    );
+    ]);
 
     config.optimization
       .minimizer('TerserPlugin')
-      .use(TerserPlugin, [{
-      // cache: true,
-        parallel: true,
-        // sourceMap: true, // 如果在生产环境中使用 source-maps，必须设置为 true
-        terserOptions: {
-        // https://github.com/webpack-contrib/terser-webpack-plugin#terseroptions
+      .use(TerserPlugin, [
+        {
+          // cache: true,
+          parallel: true,
+          // sourceMap: true, // 如果在生产环境中使用 source-maps，必须设置为 true
+          terserOptions: {
+            // https://github.com/webpack-contrib/terser-webpack-plugin#terseroptions
+          },
         },
-      }])
+      ])
       .end()
       .minimizer('OptimizeCSSAssetsPlugin')
-    // css压缩
+      // css压缩
       .use(OptimizeCSSAssetsPlugin)
       .end()
       .splitChunks({
@@ -78,7 +64,7 @@ function webpackProdChainFn(config) {
             enforce: true,
           },
           styles: {
-          /*
+            /*
             https://webpack.docschina.org/plugins/split-chunks-plugin/#splitchunksname
             Providing a string or a function allows you to use a custom name. Specifying
             either a string or a function that always returns the same string will merge all
@@ -90,7 +76,7 @@ function webpackProdChainFn(config) {
           */
             test: /\.(css|less)$/,
             name(module, chunks, cacheGroupKey) {
-            // console.log('module', module.context, chunks, cacheGroupKey);
+              // console.log('module', module.context, chunks, cacheGroupKey);
               return cacheGroupKey;
             },
             chunks: 'all',
@@ -101,18 +87,18 @@ function webpackProdChainFn(config) {
 
     config
       .plugin('MiniCssExtractPlugin')
-      .use(MiniCssExtractPlugin, [{
-        filename: '[name].[contenthash:8].css',
-        chunkFilename: '[name].[contenthash:8].css',
-      }])
+      .use(MiniCssExtractPlugin, [
+        {
+          filename: '[name].[contenthash:8].css',
+          chunkFilename: '[name].[contenthash:8].css',
+        },
+      ])
       .end()
       .plugin('CleanWebpackPlugin')
       .use(CleanWebpackPlugin);
 
     if (analyze) {
-      config
-        .plugin('BundleAnalyzerPlugin')
-        .use(BundleAnalyzerPlugin);
+      config.plugin('BundleAnalyzerPlugin').use(BundleAnalyzerPlugin);
     }
   }
 }
