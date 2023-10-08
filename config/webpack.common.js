@@ -48,19 +48,13 @@ function WebpackCommonChainFn(config) {
 
   config.module
     .rule('asset')
-    .test(/\.(svg|png|jpe?g|gif|mp3|mp4)$/)
-    .use('asset-loader')
-    .loader('url-loader')
-    .options({
-      limit: 8192,
-    });
-  config.module
-    .rule('font')
-    .test(/\.(woff2?|eot|ttf|otf)$/i)
-    .use('font-loader')
-    .loader('file-loader')
-    .options({
-      limit: 8192,
+    .test(/\.(svg|png|jpe?g|gif|mp3|mp4|woff2?|eot|ttf|otf)$/)
+    // .use('asset-loader')
+    .set('type', 'asset')
+    .set('parser', {
+      dataUrlCondition: {
+        maxSize: 8 * 1024, // 8kb
+      },
     });
 
   config
