@@ -17,8 +17,8 @@ function WebpackCommonChainFn(config) {
     .end()
     // 修改 output 配置
     .output.path(BUILD_PATH)
-    .filename('[name].[hash:8].js')
-    .chunkFilename('[name].[hash:8].js')
+    .filename('[name].[contenthash:8].js')
+    .chunkFilename('[name].[contenthash:8].js')
     // webpack-dev-server 也会默认从 publicPath 为基准，使用它来决定在哪个目录下启用服务，来访问 webpack 输出的文件。
     .publicPath('/');
 
