@@ -36,10 +36,15 @@ function WebpackCommonChainFn(config) {
   config.module
     .rule('compile')
     .test(/\.(js|jsx|ts|tsx)$/)
-    .exclude.add(/node_modules/)
-    .end()
+    // .exclude.add(/node_modules/)
+    // .end()
     .use('babel')
     .loader('babel-loader');
+
+  config.module.rule('compile').exclude.add(/node_modules[\\/]core-js/);
+  config.module
+    .rule('compile')
+    .exclude.add(/node_modules[\\/]webpack[\\/]buildin/);
 
   config.module
     .rule('asset')
