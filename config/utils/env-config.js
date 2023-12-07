@@ -6,6 +6,7 @@ const args = minimist(rawArgv, {
   boolean: ['analyze'],
 });
 
+console.log('env args:', args);
 module.exports = {
   envConfig: args,
 };

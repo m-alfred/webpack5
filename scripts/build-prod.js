@@ -12,7 +12,7 @@ webpackProdChainFn(webpackChainConfig);
 const { log, success, error } = require('../config/utils/logger');
 
 const webpackConfig = webpackChainConfig.toConfig();
-const compiler = webpack(webpackConfig, (err, stats) => {
+webpack(webpackConfig, (err, stats) => {
   if (err || stats.hasErrors()) {
     if (err) {
       error('Build faild.');

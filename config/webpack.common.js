@@ -1,15 +1,14 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { DefinePlugin } = require('webpack');
 
-const {
-  SRC_INDEX_PATH,
-  BUILD_PATH,
-  SRC_PATH,
-  moduleFileExtensions,
-} = require('./utils/paths');
-const { useTypeScript } = require('./utils/webpack-utils');
+const { SRC_INDEX_PATH, BUILD_PATH, SRC_PATH } = require('./utils/paths');
 
 function WebpackCommonChainFn(config) {
+  // 如果默认值为 'auto'，当只有 2 个或更少的错误时，它将显示错误详情。
+  // TODO 调试用可删
+  config.stats({
+    errorDetails: true,
+  });
   config
     // 修改 entry 配置
     .entry('index')
@@ -23,11 +22,7 @@ function WebpackCommonChainFn(config) {
     .publicPath('/');
 
   config.resolve.extensions
-    .merge(
-      moduleFileExtensions
-        .map((ext) => `.${ext}`)
-        .filter((ext) => useTypeScript || !ext.includes('ts'))
-    )
+    .merge(['.mjs', '.js', '.jsx', '.ts', '.tsx', '.json', '.wasm'])
     .end()
     .alias.set('@', SRC_PATH)
     .set('react-dom', '@hot-loader/react-dom');
@@ -36,15 +31,27 @@ function WebpackCommonChainFn(config) {
   config.module
     .rule('compile')
     .test(/\.(js|jsx|ts|tsx)$/)
+    // .resolve.set('fullySpecified', false)
+    // .end()
     // .exclude.add(/node_modules/)
     // .end()
     .use('babel')
     .loader('babel-loader');
 
+  // config.module.rule('compile').resolve.set('fullySpecified', false);
+
   config.module.rule('compile').exclude.add(/node_modules[\\/]core-js/);
   config.module
     .rule('compile')
     .exclude.add(/node_modules[\\/]webpack[\\/]buildin/);
+
+  // https://github.com/webpack/webpack/issues/14532#issuecomment-947525539
+  config.output.set('hashFunction', 'xxhash64');
+  // https://github.com/webpack/webpack/issues/11467#issuecomment-691873586
+  config.module
+    .rule('esm')
+    .test(/\.m?jsx?$/)
+    .resolve.set('fullySpecified', false);
 
   config.module
     .rule('asset')

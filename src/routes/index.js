@@ -29,7 +29,7 @@ class MyErrorBoundary extends React.Component {
 
 // 指定chunkName
 const Home = lazy(() =>
-  import(/* webpackChunkName: "home" */ '@/containers/home/index.hook')
+  import(/* webpackChunkName: "home" */ '@/containers/home/index')
 );
 const Detail = lazy(() =>
   import(/* webpackChunkName: "detail" */ '@/containers/detail/index.hook')

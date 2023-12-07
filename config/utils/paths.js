@@ -13,5 +13,3 @@ module.exports = {
   TS_CONFIG_PATH: resolveRoot('tsconfig.json'),
   PRETTIER_CONFIG_PATH: resolveRoot('prettier.config.js'),
 };
-
-module.exports.moduleFileExtensions = ['js', 'jsx', 'ts', 'tsx'];

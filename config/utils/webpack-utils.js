@@ -60,6 +60,7 @@ const useTypeScript = () => fs.existsSync(TS_CONFIG_PATH);
 const usePrettier = () => fs.existsSync(PRETTIER_CONFIG_PATH);
 
 module.exports = {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   useReactHotReload: useReactHotReload(),
   useTypeScript,
   usePrettier,
