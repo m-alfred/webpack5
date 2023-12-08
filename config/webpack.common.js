@@ -40,13 +40,13 @@ function WebpackCommonChainFn(config) {
 
   // config.module.rule('compile').resolve.set('fullySpecified', false);
 
-  config.module.rule('compile').exclude.add(/node_modules[\\/]core-js/);
   config.module
     .rule('compile')
-    .exclude.add(/node_modules[\\/]webpack[\\/]buildin/);
+    .exclude.add(/node_modules[\\/]webpack[\\/]buildin/)
+    .add(/node_modules[\\/]core-js/);
 
   // https://github.com/webpack/webpack/issues/14532#issuecomment-947525539
-  config.output.set('hashFunction', 'xxhash64');
+  // config.output.set('hashFunction', 'xxhash64');
   // https://github.com/webpack/webpack/issues/11467#issuecomment-691873586
   config.module
     .rule('esm')
