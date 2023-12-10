@@ -32,10 +32,15 @@
     "no-invalid-double-slash-comments": null,
     "no-descending-specificity": null,
     "no-empty-source": null,
-    "property-no-vendor-prefix": [true, { "ignoreProperties": [
-      "background-clip",
-      "box-orient"
-    ] }],
+    "property-no-vendor-prefix": [
+      true,
+      {
+        "ignoreProperties": [
+          "background-clip",
+          "box-orient"
+        ]
+      }
+    ],
     "number-leading-zero": "never",
     "number-no-trailing-zeros": true,
     "value-list-comma-space-after": "always",
@@ -51,6 +56,14 @@
     "at-rule-name-space-after": "always",
     "indentation": 2,
     "no-eol-whitespace": true,
-    "string-no-newline": null
+    "string-no-newline": null,
+    "font-family-no-missing-generic-family-keyword": [
+      true,
+      {
+        "ignoreFontFamilies": [
+          "roboto"
+        ]
+      }
+    ]
   }
 }

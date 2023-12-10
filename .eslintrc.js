@@ -64,6 +64,7 @@ const config = {
     'react/jsx-props-no-spreading': 'off',
     // 允许js、ts文件中出现jsx语法
     'react/jsx-filename-extension': 'off',
+    'jsx-a11y/media-has-caption': 'off'
   },
   globals: {
 

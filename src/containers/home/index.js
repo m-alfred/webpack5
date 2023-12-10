@@ -8,6 +8,8 @@ import Title from '@/components/Title';
 import { format } from '@/utils/date';
 import Hello from '@/components/Hello';
 import './index.less';
+import mp4 from '@/assets/请回答1988.mp4';
+import styles from './index.module.less';
 
 function wait(time) {
   return new Promise((resolve) => {
@@ -40,9 +42,10 @@ class Home extends Component {
           <Button
             onClick={() => this.props.history.push({ pathname: '/detail' })}
           >
-            to detail
+            <span className={styles.colorBlue}>to detail</span>
           </Button>
         </div>
+        <div className={styles.fontRoboto}>fontRoboto</div>
         <img src={picPikachu} alt='' />
         <img src={icCopy} alt='' />
         <div
@@ -51,6 +54,7 @@ class Home extends Component {
             this.box = node;
           }}
         />
+        <video className={styles.mp4} src={mp4} controls />
       </div>
     );
   }
