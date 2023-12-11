@@ -11,6 +11,8 @@ webpackProdChainFn(webpackChainConfig);
 
 const { log, success, error } = require('../config/utils/logger');
 
+console.log('build webpack config:', webpackChainConfig.toString());
+
 const webpackConfig = webpackChainConfig.toConfig();
 webpack(webpackConfig, (err, stats) => {
   if (err || stats.hasErrors()) {

@@ -7,14 +7,16 @@
     "test": "jest",
     "dev": "cross-env NODE_ENV=development node ./scripts/dev-server.js",
     "build": "cross-env NODE_ENV=production node ./scripts/build-prod.js",
-    "build:trace": "cross-env NODE_ENV=production node --trace-deprecation ./scripts/build-prod.js",
+    "build:trace": "cross-env NODE_ENV=production node --trace-deprecation  ./scripts/build-prod.js",
     "build:analyze": "yarn build --analyze",
     "lint:style": "stylelint --fix 'src/**/*.{css,less}'",
     "lint": "eslint -v && eslint --fix --ext .js,.jsx,.tx,.tsx src/",
     "commit": "git cz",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "check-types": "tsc",
-    "inspect": "node ./scripts/inspect.js"
+    "inspect": "node ./scripts/inspect.js",
+    "alfred:dev": "cross-env NODE_ENV=development alfred-cli-service serve",
+    "alfred:build": "cross-env NODE_ENV=production alfred-cli-service build"
   },
   "config": {
     "commitizen": {
@@ -86,6 +88,7 @@
     "postcss-loader": "^7.3.3",
     "prettier": "^2.2.1",
     "react-hot-loader": "^4.13.0",
+    "react-refresh": "^0.14.0",
     "string.prototype.padstart": "^3.1.0",
     "style-loader": "^3.3.3",
     "stylelint": "^13.8.0",
@@ -101,7 +104,7 @@
   },
   "dependencies": {
     "@hot-loader/react-dom": "^16.14.0",
-    "core-js": "3",
+    "core-js": "^3.34.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-router-dom": "^5.2.0"

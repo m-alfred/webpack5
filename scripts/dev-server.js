@@ -9,6 +9,7 @@ const webpackChainConfig = new Config();
 WebpackCommonChainFn(webpackChainConfig);
 webpackDevChainFn(webpackChainConfig);
 
+console.log('serve webpack config:', webpackChainConfig.toString());
 const webpackConfig = webpackChainConfig.toConfig();
 const compiler = webpack(webpackConfig);
 const port = 8080;

@@ -13,14 +13,19 @@ module.exports = (api) => {
     ],
     '@babel/preset-react',
   ];
-  if (useTypeScript) {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  if (useTypeScript()) {
     presets.push('@babel/preset-typescript');
   }
   const plugins = [
-    'react-hot-loader/babel',
+    // ['@babel/plugin-transform-runtime'],
     ['@babel/plugin-proposal-decorators', { legacy: true }],
     ['@babel/plugin-proposal-class-properties', { loose: false }],
   ];
+
+  if (process.env.NODE_ENV === 'development') {
+    plugins.push(['react-refresh/babel']);
+  }
 
   return { sourceType: 'unambiguous', presets, plugins };
 };

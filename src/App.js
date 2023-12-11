@@ -1,4 +1,3 @@
-import { hot } from 'react-hot-loader/root';
 import React from 'react';
 import { DatePicker, Button, message } from 'antd';
 import Routes from './routes';
@@ -16,7 +15,7 @@ function App() {
   }
   return (
     <div className='App'>
-      Hello World1
+      Hello World123
       <Button type='primary' onClick={() => handleClick()}>
         欢迎1
       </Button>
@@ -26,4 +25,4 @@ function App() {
   );
 }
 
-export default hot(App);
+export default App;
