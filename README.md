@@ -2,6 +2,11 @@
 
 从零开始使用**webpack5.0**构建react+antd项目
 
+2.0
+- [x] 封装alfred-service-cli
+- [x] 封装alfred-babel-preset
+  
+1.0
 - [x] 基础webpack配置
 - [x] dev开发服务器
 - [x] 代码分割
