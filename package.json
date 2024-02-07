@@ -44,7 +44,7 @@
   "devDependencies": {
     "@types/react": "^16.9.56",
     "alfred-babel-preset": "^1.0.0",
-    "alfred-cli-service": "^1.0.1",
+    "alfred-cli-service": "^1.0.7",
     "antd": "^4.7.2",
     "autoprefixer": "^9.8.6",
     "commitizen": "^4.2.1",
